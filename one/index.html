@@ -6,5 +6,18 @@
 </head>
 <body>
 <h1>hello world</h1>
+<script>
+    document.write("Bắt đầu vòng lặp <br> ")   ;
+    let counter = 0;
+    // debugger;
+    do {
+        counter++;
+        if (counter === 3) {
+            continue;
+        }
+        document.write(`${counter} break<br>`);
+    }while(counter <10);
+    document.write("Vong lap da chay xong");
+</script>
 </body>
 </html>

@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    var number = +prompt("Nhập số lượng số nguyên tố");
+    var count = 0 ;
+    var N = 2 ;
+    for (N = 2 ; N < 1000 ; N++);
+        if (count < number) {
+            for (let i=1; i<1000; i++){
+                if (N % i == 0) {
+                    count += 1;
+                }
+            }
+            if (count == 2) {
+                document.write(N + "<br>");
+
+            }
+        }
+        document.write(N);
+</script>
+
+</body>
+</html>
