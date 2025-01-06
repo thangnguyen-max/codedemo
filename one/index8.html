@@ -3,6 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <title>Title</title>
+    <script src="main.js"></script>
 </head>
 <body>
 <form>
@@ -14,13 +15,5 @@
     </p>
     <p>Celsius: <span id="outputCelsius"></span></p>
 </form>
-
-<script>
-    function temperatureConverter(valNum) {
-        valNum = parseFloat(valNum);
-        document.getElementById("outputCelsius").innerHTML = (valNum - 32) / 1.8;
-    }
-</script>
-
 </body>
 </html>

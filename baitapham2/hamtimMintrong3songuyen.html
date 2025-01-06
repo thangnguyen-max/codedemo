@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number1 = +prompt("Enter number1");
+    let number2 = +prompt("Enter number2");
+    let number3 = +prompt("Enter number3");
+
+    function min(number1, number2, number3) {
+        if (number1 > number2) {
+            if (number2 > number3) {
+                return "Number3 is too short";
+            } else {
+                return "Number2 is too short";
+            }
+        } else {
+            if (number1 < number3) {
+                return "Number1 is too short";
+            } else {
+                return "Number3 is too short";
+            }
+        }
+    }
+
+    alert(min(number1, number2, number3));
+</script>
+
+</body>
+</html>

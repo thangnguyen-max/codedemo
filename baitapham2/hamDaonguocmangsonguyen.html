@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    function reverseArray(arr) {
+        let reversedArr = [];
+        for (let i = arr.length - 1; i >= 0; i--) {
+            reversedArr.push(arr[i]);
+        }
+        return reversedArr;
+    }
+    let originalArray = [1, 2, 3, 4, 5, 6, 7, 8, 9];
+    document.write("Mảng ban đầu là : " + originalArray + "<br>" );
+    document.write("Mảng sau khi đảo ngược là : "+ reverseArray(originalArray));
+</script>
+
+</body>
+</html>

@@ -1,0 +1,26 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+    let number = +prompt("Nhap so can tinh giai thua");
+    if (number < 0) {
+        document.write("giai thua khong duoc dinh nghia ");
+    }
+    let result = 1;
+
+    function factorial(number) {
+        for (let i = 1; i <= number; i++) {
+            result *= i;
+        }
+        return result;
+    }
+
+    document.write(factorial(number));
+</script>
+
+</body>
+</html>

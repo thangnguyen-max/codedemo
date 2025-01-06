@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<script>
+
+
+     let char = prompt("Nhập 1 ký tự từ a - z");
+
+     function charTest(array, character) {
+         let count = 0;
+         for (let i = 0; i < array.length; i++) {
+             if (array[i] === character) {
+                 count++;
+             }
+         }
+         return count;
+     }
+     let array = ['a', 'b', 'c', 'd', 'e', 'e', 'a', 'a', 'c'];
+     let charToCheck = char;
+     let result = charTest(array, charToCheck);
+     document.write(`Số lần xuất hiện của ký tự '${charToCheck}' là: ${result}`);
+
+</script>
+
+</body>
+</html>
