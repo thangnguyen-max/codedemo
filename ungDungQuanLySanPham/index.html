@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<form action="" id="productForm" onsubmit="addProduct(); return false;">
+    <div>
+        <lable for="name">Tên sản phẩm</lable>
+        <input type="text" name="name" id="name" required>
+    </div>
+    <div>
+        <lable for="price">Giá</lable>
+        <input type="number" name="price" id="price" required>
+    </div>
+    <div>
+        <lable for="description">Mô tả</lable>
+        <textarea type="text" name="description" id="description" required></textarea>
+    </div>
+    <div>
+        <lable for="category">Danh mục</lable>
+        <select name="category" id="category" required>
+            <option>-Chọn Danh mục-</option>
+            <option>Sách tư duy</option>
+            <option>Tiểu thuyết</option>
+            <option>Sách kỹ năng</option>
+        </select>
+    </div>
+    <div>
+        <button type="submit" >Lưu</button>
+    </div>
+</form>
+
+<table border="1">
+    <thead>
+    <th>Tên</th>
+    <th>Giá</th>
+    <th>Mô tả</th>
+    <th>Chuyên đề</th>
+    </thead>
+    <tbody id="tableData"></tbody>
+</table>
+<script>
+    class Product {
+        constructor(name, price, description, category) {
+            this.name = name;
+            this.price = price;
+            this.description = description;
+            this.category = category;
+        }
+    }
+
+    const book1 = new Product("Numagician - Đánh Thức Phù Thuỷ Trí Nhớ Trong Bạn - FuSuSu", 144000, "Thượng đế ban cho mỗi người bộ não thiên tài, chỉ tiếc là ngài quên gửi... hướng dẫn sử dụng!", "Sách tư duy");
+    const book2 = new Product("Osho - Tâm Trí Tỉnh Thức", 103000, "Tất cả các cuốn sách của Osho đều được tạo ra từ những cuộc nói chuyện rộng rãi của ông.", "Sách tư duy");
+    const productList = [];
+    let productIndexItem = -1 ;
+    productList.push(book1, book2);
+
+    function displayProduct() {
+        const tableData = document.getElementById("tableData");
+        let data = '';
+        for (let i = 0; i < productList.length; i++) {
+
+            data += `<tr>
+        <td>${productList[i].name}</td>
+        <td>${productList[i].price}</td>
+        <td>${productList[i].description}</td>
+        <td>${productList[i].category}</td>
+        <td><button onclick="editProduct(${i})">Sửa</button><button onclick="deleteProduct(${i})">Xóa</button></td>
+    </tr>   `
+
+        }
+        tableData.innerHTML = data;
+    }
+
+    displayProduct();
+    // function addProduct() {
+    //     const name = document.getElementById("name").value;
+    //     const price = document.getElementById("price").value;
+    //     const description = document.getElementById("description").value;
+    //     const category = document.getElementById("category").value;
+    //     const newProduct= new Product(name,price,description,category);
+    function addProduct() {
+            const name = document.getElementById("name").value;
+            const price = document.getElementById("price").value;
+            const description = document.getElementById("description").value;
+            const category = document.getElementById("category").value;
+            if(productIndexItem !== -1){
+                productList[productIndexItem].name = name;
+                productList[productIndexItem].description = description;
+                productList[productIndexItem].category = category;
+                productList[productIndexItem].description = description;
+            }else{
+                const newProduct = new Product(name,price,description,category);
+                productList.push(newProduct);
+            }
+        displayProduct();
+            document.getElementById("productForm").reset();
+            productIndexItem = -1 ;
+    }
+
+    function deleteProduct(item){
+        if(confirm(`Bạn có muốn xóa sản phẩm "${productList[item].name}" không ?`)){
+            productList.splice(item, 1);
+            displayProduct();
+        }
+
+
+    }
+
+    function editProduct(item){
+        productIndexItem = item;
+        document.getElementById("name").value = productList[item].name;
+        document.getElementById("price").value = productList[item].price;
+        document.getElementById("description").value = productList[item].description;
+        document.getElementById("category").value = productList[item].category;
+
+    }
+
+</script>
+
+</body>
+</html>
